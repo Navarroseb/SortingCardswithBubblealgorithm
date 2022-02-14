@@ -5,53 +5,57 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-/* window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!"); */
-
 window.onload = () => {
-  document.querySelector(".card").classList.add(generateRandomsymbol());
-  document.querySelector(".card").innerHTML = generateRandomNumber();
-};
-let generateRandomNumber = () => {
-  let numbers = [
-    "A",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "J",
-    "Q",
-    "K"
-  ];
-  let indexnumbers = Math.floor(Math.random() * numbers.length);
-  return numbers[indexnumbers];
-};
-
-let generateRandomsymbol = () => {
+  let numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13];
   let symbols = ["diamond", "club", "heart", "spade"];
+  let cardArr= [];
 
-  let indexsymbols = Math.floor(Math.random() * symbols.length);
-  return symbols[indexsymbols];
-};
+  function myCard() {
+    cardArr = [];
+    let Card = document.querySelector(".container");
+    if (Card.childNodes.length !== 0) {
+      Card.innerHTML = "";
+    }
+    let inputValueCards = parseInt(
+      document.getElementById("numberusercards").value
+    ); //estoy llamando y convirtiendo el valor del input que coloca el usuario en numero
+    if (inputValueCards === 0) {
+      alert("Coloca un numero mayor a 0");
+    } else if (inputValueCards !== 0) {
+      for (let i = 0; i < inputValueCards; i++) {
+        let objElementsCard = {
+          suits: suits[Math.floor(Math.random() * suits.length)],
+          ranks: ranks[Math.floor(Math.random() * ranks.length)]
+        };
+        // objOfCards = objOfCards.concat(objElementsCard);
+        objOfCards.push(objElementsCard);
+      }
 
-let array = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-
-function bubbleSort(arr) {
-  for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = 0; j < arr.length - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        let aux = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = aux;
+      if (myCard.childNodes.length === 0) {
+        for (let element of objOfCards) {
+          if (element.ranks === 1) {
+            element.ranks = "A";
+          }
+          if (element.ranks === 11) {
+            element.ranks = "J";
+          }
+          if (element.ranks === 12) {
+            element.ranks = "Q";
+          }
+          if (element.ranks === 13) {
+            element.ranks = "K";
+          }
+          let myDiv = document.createElement("div");
+          let contentDiv = document.createTextNode(`${element.ranks}`);
+          myDiv.className = `card ${element.suits}`;
+          myDiv.appendChild(contentDiv);
+          myCard.appendChild(myDiv);
+        }
       }
     }
   }
-  return arr;
-}
-console.log(bubbleSort(array));
+
+  let buttondraw = document.querySelector(".draw")
+
+    
+  
