@@ -10,17 +10,41 @@
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
+      rel="stylesheet"
+    />
+
+    <script></script>
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
-  <body>
-    <h1 class="text">Inicio</h1>
-    <input type="text" id="numberusercards" name="numberusercards" />
-    <button type="button" id="btdraw" class="draw">Draw</button>
-    <button type="button" id="btsort" class="sort">Sort</button>
-    <div class="container"></div>
-    <h1 class="bubble-sort-log">Bubble Sort Log:</h1>
-    <div class="contenedor-listas-sort"></div>
 
-    <script src="./app.js"></script>
+  <body>
+    <img
+      id="imagebody"
+      src="https://cdn.pixabay.com/photo/2014/04/02/10/36/playing-cards-303998_960_720.png"
+    />
+    <header>
+      <div class="buttonBox">
+        <form action="">
+          <input
+            type="text"
+            id="numberOfCards"
+            placeholder="Número de cartas"
+          />
+        </form>
+        <button id="botonDraw" class="draw">
+          Pedir
+        </button>
+        <button id="botonSort" class="sort">
+          Ordenar
+        </button>
+      </div>
+    </header>
+    <section>
+      <div id="cardList"></div>
+      <div id="sortedCardList"></div>
+    </section>
   </body>
 </html>

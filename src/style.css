@@ -3,9 +3,68 @@
 body {
   background-color: rgb(100, 160, 100);
   box-sizing: border-box;
-  text-align: -webkit-center;
+  margin-top: 20px;
+  margin-left: 5%;
+}
+#imagebody {
+  height: 10%;
+  width: 10%;
+}
+header,
+#cardList,
+#sortedCardList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+section {
+  flex-direction: column;
+  margin-left: 2rem;
+}
+input,
+button,
+form {
+  display: inline-block;
+  text-align: center;
+}
+#card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 0.2rem;
+  width: 90px;
+  height: 120px;
+  border-radius: 12px;
+  margin-top: 15px;
+  border: 2px;
+  border-style: solid;
+  border-color: darkgoldenrod;
 }
 
+#top,
+#bottom {
+  height: 25%;
+  font-size: 1.25em;
+  margin-left: 2%;
+}
+
+#bottom {
+  margin-right: 2%;
+  transform: rotate(180deg);
+}
+
+#center {
+  height: 60%;
+  text-align: center;
+  font-size: 2em;
+  display: block;
+  align-content: center;
+  color: darkgoldenrod;
+}
 .draw {
   background: black;
   color: orangered;
